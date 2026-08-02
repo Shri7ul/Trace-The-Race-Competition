@@ -26,3 +26,20 @@ Thumbs.db
 !/Dataset/
 !*.md
 .parquet
+
+
+
+# Keep only the starting submission ZIP from the ignored dataset folder
+!Trace-The-Race-Dataset/
+Trace-The-Race-Dataset/*
+
+!Trace-The-Race-Dataset/outputs/
+Trace-The-Race-Dataset/outputs/*
+
+!Trace-The-Race-Dataset/outputs/06_model_training/
+Trace-The-Race-Dataset/outputs/06_model_training/*
+
+!Trace-The-Race-Dataset/outputs/06_model_training/submissions/
+Trace-The-Race-Dataset/outputs/06_model_training/submissions/*
+
+!Trace-The-Race-Dataset/outputs/06_model_training/submissions/submission_starting_baseline.zip
