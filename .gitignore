@@ -1,0 +1,27 @@
+# Python cache and tooling
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments and local environment files
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Project-specific exclusions
+/abcd.py
+/Trace-The-Race-Dataset/
+
+# These must remain trackable
+!/Dataset/
+!*.md
