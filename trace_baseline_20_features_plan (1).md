@@ -594,3 +594,7 @@ baseline training
 এগুলো measurable session signals।
 
 কোন feature আসলে useful তা নির্ধারণ করবে validation score এবং Trace the Ace-এর training labels।
+
+
+
+`duration_threshold (high , medium , low) ` 
