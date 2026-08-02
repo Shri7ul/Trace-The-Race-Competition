@@ -1,0 +1,46 @@
+feature_name,dtype,description,importance_expectation
+response_id,string,Unique response identifier.,Excluded / target
+session_id,string,Conversation/session identifier; use as the validation group.,Excluded / target
+learning_objective_id,string,Categorical identifier for the assessed learning objective.,High
+learning_objective,category,Human-readable learning objective text.,High
+is_correct,Int8,Binary prediction target.,Excluded / target
+transcript,string,"Original timestamped, speaker-attributed session transcript.",High
+clean_transcript,string,"Normalized spoken text with timestamps, metadata, and unusual symbols removed.",High
+char_count,int64,Number of characters in spoken transcript content.,Medium
+word_count,int64,Number of word tokens in spoken transcript content.,Medium-High
+sentence_count,int64,Number of sentence-ending punctuation groups.,Medium
+avg_sentence_length,float64,Words per sentence.,Medium
+avg_word_length,float64,Average characters per word.,Medium
+unique_word_count,int64,Number of unique case-normalized words.,Medium
+unique_word_ratio,float64,Unique words divided by total words.,Medium
+vocabulary_richness,float64,Type-token ratio measuring vocabulary variety.,Medium
+lexical_diversity,float64,Guiraud-style unique words divided by square root of word count.,Medium
+punctuation_count,int64,Count of ASCII punctuation characters.,Medium
+uppercase_count,int64,Count of uppercase characters in spoken content.,Medium
+digit_count,int64,Count of digit characters in spoken content.,Medium
+tutor_turns,int64,Number of transcript turns labeled tutor.,Medium
+student_turns,int64,Number of transcript turns labeled student.,Medium
+background_turns,int64,Number of transcript turns labeled background.,Medium
+total_turns,int64,Total recognized speaker turns.,Medium
+tutor_student_ratio,float64,Tutor turns divided by student turns.,Medium
+avg_words_per_turn,float64,Transcript words divided by total turns.,Medium
+unclear_count,int64,Count of unclear transcription markers.,Medium
+question_count,int64,Count of question marks in spoken content.,Medium
+exclamation_count,int64,Count of exclamation marks in spoken content.,Medium
+response_density,float64,Student turns divided by all recognized turns.,Medium
+duration_sec,float64,Difference between maximum and minimum transcript timestamps in seconds.,Medium-High
+student_ratio,float64,Student turns divided by all recognized turns.,Medium-High
+tutor_ratio,float64,Tutor turns divided by all recognized turns.,Medium
+speaker_balance,float64,Balance of tutor and student turn counts; 1 is most balanced.,Medium-High
+transcript_density,float64,Words per timestamped second.,Medium
+question_density,float64,Question marks per word.,Medium-High
+unclear_density,float64,Unclear markers per recognized turn.,Medium-High
+objective_frequency,int32,Number of rows associated with the learning objective.,Medium-High
+objective_popularity,float32,Objective frequency divided by all response rows.,Medium-High
+responses_per_objective,int32,Unique response IDs associated with the objective.,Medium
+responses_per_session,int16,Number of scored responses in the session.,Medium-High
+session_transcript_length,int32,Character count of the selected session transcript.,Medium
+session_average_response_length,float32,Session word count divided by scored responses in the session.,Medium
+session_objective_diversity,int16,Number of unique learning objectives assessed in the session.,Medium-High
+word_count_outlier,int8,IQR flag for unusually short or long word count.,Medium
+duration_outlier,int8,IQR flag for unusually short or long timestamp duration.,Medium

@@ -25,3 +25,4 @@ Thumbs.db
 # These must remain trackable
 !/Dataset/
 !*.md
+.parquet
