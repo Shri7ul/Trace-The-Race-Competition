@@ -1,0 +1,287 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.9.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
++ main
++ tee /code_execution/submission/log.txt
++ expected_filename=main.py
++ cd /code_execution
+++ zip -sf ./submission/submission.zip
++ submission_files='Archive contains:
+assets/feature_config.json
+assets/model.joblib
+assets/model_info.json
+assets/word_tfidf_vectorizer.joblib
+main.py
+Total 5 entries (2380226 bytes)'
++ grep -q main.py
++ log INFO 'Unpacking submission'
++ set +x
+2026-08-02 22:40:26.601 | INFO  | Unpacking submission
++ unzip ./submission/submission.zip -d ./
+Archive:  ./submission/submission.zip
+inflating: ./assets/feature_config.json
+inflating: ./assets/model.joblib
+inflating: ./assets/model_info.json
+inflating: ./assets/word_tfidf_vectorizer.joblib
+inflating: ./main.py
++ ls -alh
+total 464K
+drwxr-xr-x 1 runtimeuser runtimeuser 4.0K Aug  2 22:40 .
+drwxr-xr-x 1 root        root        4.0K Aug  2 22:40 ..
+-rw-r--r-- 1 runtimeuser runtimeuser    4 Jul 30 13:32 .python-version
+drwxr-xr-x 7 runtimeuser runtimeuser 4.0K Jul 30 13:36 .venv
+drwxr-xr-x 2 runtimeuser runtimeuser 4.0K Aug  2 22:40 assets
+drwxrwxrwx 2 root        root        4.0K Aug  2 22:40 data
+drwxrwxrwx 2 root        root        4.0K Aug  2 22:40 huggingface_models
+-rw-rw-rw- 1 runtimeuser runtimeuser  12K Aug  3  2026 main.py
+-rw-r--r-- 1 runtimeuser runtimeuser 2.4K Jul 30 13:32 pyproject.toml
+drwxrwxrwx 2 root        root        4.0K Aug  2 22:40 submission
+-rw-r--r-- 1 runtimeuser runtimeuser 428K Jul 30 13:32 uv.lock
++ '[' -d data ']'
++ log INFO 'Data directory contents:'
++ set +x
+2026-08-02 22:40:26.627 | INFO  | Data directory contents:
++ ls -alh data/
+total 0
+-rwxrwxrwx 1 root root 1.2K Jun  9 18:49 submission_format.csv
+-rwxrwxrwx 1 root root 6.7K Jun  9 18:49 test_features.csv
+drwxrwxrwx 2 root root 4.0K Aug  2 22:40 test_transcripts
++ '[' -n '' ']'
++ echo 'Running submission...'
+Running submission...
++ python main.py
+/code_execution/.venv/lib/python3.12/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.7.2 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+warnings.warn(
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/main.py:84: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+timestamps = pd.to_datetime(transcript["timestamp"], errors="coerce", utc=True)
+/code_execution/.venv/lib/python3.12/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator TfidfTransformer from version 1.7.2 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+warnings.warn(
+/code_execution/.venv/lib/python3.12/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator TfidfVectorizer from version 1.7.2 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+warnings.warn(
++ echo 'Exporting submission.csv result...'
+Exporting submission.csv result...
++ '[' -f submission.csv ']'
++ log INFO 'Script completed its run.'
++ set +x
+2026-08-02 22:40:30.859 | INFO  | Script completed its run.
++ cp submission.csv ./submission/submission.csv
++ exit_code=0
++ cp /code_execution/submission/log.txt /tmp/log
++ log INFO 'Submission run completed with exit code: 0'
++ set +x
++ tee -a /code_execution/submission/log.txt /tmp/log
+2026-08-02 22:40:30.905 | INFO  | Submission run completed with exit code: 0
++ exit 0
