@@ -43,3 +43,83 @@ Trace-The-Race-Dataset/outputs/06_model_training/*
 Trace-The-Race-Dataset/outputs/06_model_training/submissions/*
 
 !Trace-The-Race-Dataset/outputs/06_model_training/submissions/submission_starting_baseline.zip
+
+
+
+# ============================================================
+# OLD BASELINE MODEL ANALYSIS
+# Keep only the three final notebooks and baseline report
+# ============================================================
+
+notebook/model_analysis/*
+
+!notebook/model_analysis/baseline_model_analysis.ipynb
+!notebook/model_analysis/baseline_analysis_2.ipynb
+!notebook/model_analysis/Step_7_Integrated_Diagnostic_8_Cells (1).ipynb
+
+!notebook/model_analysis/Baseline_analysis_report/
+!notebook/model_analysis/Baseline_analysis_report/**
+
+
+# ============================================================
+# GENERATED / HEAVY ANALYSIS ARTIFACTS
+# ============================================================
+
+**/__pycache__/
+**/.ipynb_checkpoints/
+*.py[cod]
+
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+*.joblib
+*.pkl
+*.pickle
+*.npz
+*.npy
+
+*.parquet
+*.feather
+*.arrow
+
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+wandb/
+runs/
+lightning_logs/
+mlruns/
+
+# Local caches
+.cache/
+huggingface/
+transformers_cache/
+sentence_transformers_cache/
+
+# Operating system / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+
+# ============================================================
+# SCRATCH MASTERY GENERATED OUTPUTS
+# Source notebooks will be committed; generated data will not.
+# ============================================================
+
+notebook_advance/**/outputs/
+notebook_advance/**/figures/
+notebook_advance/**/cache/
+notebook_advance/**/checkpoints/
+notebook_advance/**/models/
+notebook_advance/**/predictions/
+notebook_advance/**/logs/
+notebook_advance/**/temp/
+notebook_advance/**/tmp/
