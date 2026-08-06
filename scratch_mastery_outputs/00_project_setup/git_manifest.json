@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-08-07T02:24:26.217914+06:00",
+  "branch": "main",
+  "commit": "fe016b77cac9f90ae5dc677868c79c3464c41c54",
+  "working_tree_status": "M notebook_advance/00_project_setup/00_environment_and_paths.ipynb\n M scratch_mastery_outputs/00_project_setup/environment_manifest.json\n M scratch_mastery_outputs/00_project_setup/hardware_manifest.json\n M scratch_mastery_outputs/00_project_setup/source_fingerprints.json",
+  "working_tree_clean": false,
+  "scratch_output_ignored": false,
+  "dataset_root_ignored": false
+}

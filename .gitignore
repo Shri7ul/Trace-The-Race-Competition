@@ -123,3 +123,9 @@ notebook_advance/**/predictions/
 notebook_advance/**/logs/
 notebook_advance/**/temp/
 notebook_advance/**/tmp/
+
+# Scratch Mastery generated artifacts
+scratch_mastery_outputs/
+
+# Local competition data and generated dataset outputs
+Trace-The-Race-Dataset/

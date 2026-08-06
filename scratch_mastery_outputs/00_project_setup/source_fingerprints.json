@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-08-07T02:24:21.379081+06:00",
+  "train_features_path": "C:\\Users\\USER\\Kawsar_Ahmmed\\ALL_Projects_Lab\\Trace-The-Race-Competition\\Trace-The-Race-Dataset\\train_features_TMQTWsB.csv",
+  "train_features_size_bytes": 2370758,
+  "train_features_sha256": "71bea3abb76a1cff5e1eaa75b9cbcfaf26d0419f6274b83a199ed520047a5063",
+  "train_labels_path": "C:\\Users\\USER\\Kawsar_Ahmmed\\ALL_Projects_Lab\\Trace-The-Race-Competition\\Trace-The-Race-Dataset\\train_labels_44ujmj2.csv",
+  "train_labels_size_bytes": 420887,
+  "train_labels_sha256": "d98ee4389e5cde3f66d6d15b7b574261024a80e405958eca333d3c1921fd65b9"
+}

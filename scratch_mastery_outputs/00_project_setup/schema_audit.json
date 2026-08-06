@@ -1,0 +1,24 @@
+{
+  "train_feature_rows": 35072,
+  "train_label_rows": 35072,
+  "merged_response_rows": 35072,
+  "unique_responses": 35072,
+  "unique_sessions": 22821,
+  "unique_objectives": 398,
+  "positive_rows": 24637,
+  "negative_rows": 10435,
+  "positive_rate": 0.7024692062043796,
+  "feature_label_merge_status": {
+    "both": 35072,
+    "left_only": 0,
+    "right_only": 0
+  },
+  "detected_columns": {
+    "feature_response_column": "response_id",
+    "feature_session_column": "session_id",
+    "feature_objective_column": "learning_objective",
+    "embedded_transcript_column": null,
+    "label_response_column": "response_id",
+    "label_target_column": "is_correct"
+  }
+}
