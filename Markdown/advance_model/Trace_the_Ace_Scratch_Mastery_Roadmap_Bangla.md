@@ -607,6 +607,10 @@ ModernBERT একটি bidirectional encoder, যার native context window 8
 
 Competition runtime Python 3.12, internet ছাড়া inference, preloaded/local Hugging Face model, six-hour full-submission limit এবং সীমিত weekly submission ব্যবহার করে। Exact model availability আগে verify করতে হবে।[^competition-runtime]
 
+
+
+
+
 ### ৫.২ Recommended master architecture
 
 ```text
@@ -659,6 +663,108 @@ Learning objective
                         │
           Blend with sparse TF–IDF model
 ```
+# Upated Main Architecture 
+
+```text
+                 RAW ORDERED TRANSCRIPT
+                          │
+                          ▼
+                CANONICAL TURN PARSER
+             role + timestamp + true order
+                          │
+                          ▼
+                  LEARNING OBJECTIVE
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+             ▼                         ▼
+       Sparse Retrieval          Dense Retrieval
+ TF-IDF + char/math overlap     Sentence-Transformer
+             │                         │
+             └────────────┬────────────┘
+                          ▼
+                  Candidate Pool
+                          │
+                          ▼
+                 CROSS-ENCODER
+                    RERANKING
+                          │
+                          ▼
+              OBJECTIVE-SPECIFIC TURNS
+                          │
+                          ▼
+              ROLE + TIME EVIDENCE PACK
+      ┌─────────────────────────────────────┐
+      │ Student evidence before feedback    │
+      │ Tutor question / scaffold           │
+      │ Student evidence after feedback     │
+      │ Final student evidence              │
+      │ Negative / uncertain evidence       │
+      └─────────────────────────────────────┘
+                          │
+                  max 2048 tokens
+                          │
+                          ▼
+                 MODERNBERT-BASE
+                          │
+                          ▼
+                    Mastery Logit
+                         z_sem
+                          │
+               ┌──────────┴──────────┐
+               │                     │
+               ▼                     ▼
+            BCE Loss           Same-session
+                               Pairwise Loss
+               │                     │
+               └──────────┬──────────┘
+                          ▼
+                    TOTAL LOSS
+
+        L = BCE + λ_pair × PairwiseLoss
+
+
+               PARALLEL FEATURE BRANCH
+                          │
+        ┌─────────────────┼─────────────────┐
+        ▼                 ▼                 ▼
+ Retrieval/confidence   Tutor/help       Temporal/
+      features           features        negative
+        └─────────────────┼─────────────────┘
+                          ▼
+                  20–35 STRUCTURED
+                       FEATURES
+                          │
+                          ▼
+                Evidence-confidence gate
+                          │
+                          ▼
+     Fold-safe objective prior + semantic logit
+                          │
+                          ▼
+                   SIMPLE FUSION
+                          │
+                          ▼
+                  NEURAL PROBABILITY
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+             ▼                         ▼
+      ModernBERT branch          TF-IDF Logistic
+             │                         │
+             └────────────┬────────────┘
+                          ▼
+                       OOF BLEND
+                          │
+                          ▼
+         Temperature/Platt calibration
+               ONLY if OOF improves
+                          │
+                          ▼
+                  FINAL PROBABILITY
+```
+
+
 
 ### ৫.৩ Transformer input structure
 
@@ -1202,3 +1308,7 @@ Step 15 → Python 3.12 offline packaging ও submission benchmark
 [^talkmoves]: K-12 AI Infrastructure Program, **TalkMoves dataset**: <https://platform.k12-ai-infrastructure.org/datasets/9/talkmoves/version/9/>
 
 [^external-data-rules]: K-12 AI Infrastructure Program, external dataset declarations ও licence requirements: <https://platform.k12-ai-infrastructure.org/>
+
+
+
+
