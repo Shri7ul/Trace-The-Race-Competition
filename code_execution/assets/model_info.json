@@ -1,0 +1,12 @@
+{
+  "model_key": "word_logistic",
+  "family": "logistic",
+  "matrix": "word",
+  "validation_log_loss": 0.5454746751622792,
+  "full_labelled_rows": 35072,
+  "python_version": "3.10.20",
+  "numpy_version": "2.2.6",
+  "pandas_version": "2.3.3",
+  "scipy_version": "1.15.3",
+  "sklearn_version": "1.7.2"
+}
